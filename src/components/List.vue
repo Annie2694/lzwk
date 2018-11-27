@@ -1,10 +1,11 @@
 <template>
   <div class="list">
     <div class="tag">
-      <div class="tag1">课程介绍</div>
-      <div class="tag2">听课列表</div>
+      <div class="tag1" :class="{active: selected==0}" @click="selected=0">课程介绍</div>
+      <div class="tag2" :class="{active: selected==1}" @click="selected=1">听课列表</div>
     </div>
-    <div class="lessons">
+    <div class="introduce" v-if="!selected">暂无详细信息。</div>
+    <div class="lessons" v-if="selected">
       <div class="lesson">
         <div class="lesson-title">
           <div class="name">第1课 目标选择：找对方向是一切努力的根基</div>
@@ -28,13 +29,12 @@
       </div>
       <div class="lesson">
         <div class="lesson-title">
-          <div class="name">第1课 目标选择：找对方向是一切
-            努力的根基</div>
+          <div class="name">第1课 目标选择：找对方向是一切努力的根基</div>
           <div class="time orange"><img src="../assets/img/free.png" class="clock"/>免费试听</div>
         </div>
         <img src="../assets/img/cover.png" class="cover"/>
       </div>
-      <div class="lesson">
+      <div class="lesson last">
         <div class="lesson-title">
           <div class="name"><img src="../assets/img/video.png" class="video"/>第1课 目标选择：找对方向是一切努力的根基</div>
           <div class="time"><img src="../assets/img/time.png" class="clock"/>正在排课</div>
@@ -42,20 +42,38 @@
         <img src="../assets/img/cover.png" class="cover"/>
       </div>
     </div>
+    <img src="../assets/img/more.png" class="more_icon"/>
   </div>
 </template>
 
 <script>
-
-
+export default {
+  data () {
+    return {
+      selected: 1
+    }
+  }
+}
 </script>
 
 <style scoped>
+.list {
+  padding-bottom: 15vw;
+}
+
+.introduce {
+  text-align: center;
+  width: 100vw;
+  height: 50vw;
+  margin-top: 10vw;
+}
+
 .tag {
   display: flex;
   background-color: #fff;
   height: 12.27vw;
   width: 100vw;
+  box-shadow: 0 0 4px 0 #F0F0F0;
 }
 
 .tag1 {
@@ -71,7 +89,12 @@
   width: 50vw;
   text-align: center;
   font-size: 14px;
+  color: #999999;
   margin-top: 3.5vw;
+}
+
+.active {
+  color: #333333;
 }
 
 .lessons {
@@ -81,8 +104,8 @@
   padding-bottom: 2.6vw;
 }
 
-.lesson-title {
-
+.last {
+  opacity: 0.5;
 }
 
 .lesson {
@@ -137,5 +160,13 @@
 
 .orange {
   color: #FF5A31;
+}
+
+.more_icon {
+  width: 14.4vw;
+  height: 14.4vw;
+  position: absolute;
+  bottom: 4vw;
+  right: 4vw;
 }
 </style>
