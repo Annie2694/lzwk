@@ -1,17 +1,23 @@
 <template>
   <div id="app">
     <DetailPage></DetailPage>
+    <List></List>
+    <Button></Button>
   </div>
 </template>
 
 <script>
 import DetailPage from '@/components/DetailPage'
+import List from '@/components/List'
+import Button from '@/components/Button'
 
 export default {
   name: 'App',
 
   components: {
-    DetailPage
+    DetailPage,
+    List,
+    Button
   }
 }
 </script>
