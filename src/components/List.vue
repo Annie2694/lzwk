@@ -57,11 +57,7 @@ export default {
 </script>
 
 <style scoped>
-.list {
-  padding-bottom: 15vw;
-}
-
-.introduce {
+  .introduce {
   text-align: center;
   width: 100vw;
   height: 50vw;
@@ -165,8 +161,8 @@ export default {
 .more_icon {
   width: 14.4vw;
   height: 14.4vw;
-  position: absolute;
-  bottom: 4vw;
-  right: 4vw;
+  position: relative;
+  left: 81.6vw;
+  bottom: 16vw;
 }
 </style>
