@@ -43,6 +43,7 @@ export default {
   letter-spacing: 0;
   text-align: center;
   height: 13.33vw;
+  padding-top: 3vw;
   border-bottom-left-radius: 10vw;
   border-top-left-radius: 10vw;
 }
@@ -57,13 +58,14 @@ export default {
   height: 13.33vw;
   border-bottom-right-radius: 10vw;
   border-top-right-radius: 10vw;
-  padding-top: 4.5vw;
+  padding-top: 4vw;
 }
 
 .listenButton {
   width: 5.01vw;
   height: 5.01vw;
   margin-right: 1.76vw;
-  margin-top: 4.16vw;
+  position: relative;
+  bottom: -1vw;
 }
 </style>

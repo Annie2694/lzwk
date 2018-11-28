@@ -1,8 +1,8 @@
 <template>
   <div class="list">
     <div class="tag">
-      <div class="tag1" :class="{active: selected==0}" @click="selected=0">课程介绍</div>
-      <div class="tag2" :class="{active: selected==1}" @click="selected=1">听课列表</div>
+      <div class="tag1" :class="{active: selected==0}" @click="selected=0">课程介绍<div :class="{under: selected==0}"></div></div>
+      <div class="tag2" :class="{active: selected==1}" @click="selected=1">听课列表<div :class="{under: selected==1}"></div></div>
     </div>
     <div class="introduce" v-if="!selected">暂无详细信息。</div>
     <div class="lessons" v-if="selected">
@@ -41,8 +41,8 @@
         </div>
         <img src="../assets/img/cover.png" class="cover"/>
       </div>
+      <img src="../assets/img/more.png" class="more_icon"/>
     </div>
-    <img src="../assets/img/more.png" class="more_icon"/>
   </div>
 </template>
 
@@ -91,6 +91,13 @@ export default {
 
 .active {
   color: #333333;
+}
+
+.under {
+  border: #FF5A31 solid 1.5px;
+  width: 5.3vw;
+  margin-left: 22.5vw;
+  margin-top: 3.5vw;
 }
 
 .lessons {
