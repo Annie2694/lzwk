@@ -14,8 +14,14 @@
         <div class="class_name">第2课：拒绝脖子前倾，让自己回归女神气质<img src="./assets/img/secret.png" class=""/></div>
         <div class="class_name">第2课：拒绝脖子前倾，让自己回归女神气质</div>
         <div class="class_name">第2课：拒绝脖子前倾，让自己回归女神气质</div>
+        <input type="range">
       </div>
     </div>
+    <Modal :content="modalContent" v-if="isShowModal" @modalEvent="getModal">
+      <div slot="content" style="color:#666">
+        点击<font color="#FF5A31">下方按钮</font>即可学习所有课程
+      </div>
+    </Modal>
   </div>
 </template>
 
@@ -23,23 +29,42 @@
 import DetailPage from '@/components/DetailPage'
 import List from '@/components/List'
 import Button from '@/components/Button'
+import Modal from '@/components/Modal'
 
 export default {
   name: 'App',
   data () {
     return {
-      isShowTrialView: false
+      isShowTrialView: false,
+      isShowModal: true,
+      modalContent: {
+        title: '你还未购买该专栏',
+        btn: '我要学习'
+      }
     }
   },
 
   components: {
     DetailPage,
     List,
-    Button
+    Button,
+    Modal
   },
   methods: {
     clickTryBtn (isShowTrialView) {
       this.isShowTrialView = isShowTrialView
+    },
+    getModal (type) {
+      switch (type) {
+        case 'study':
+          this.isShowModal = false
+          console.log('click study')
+          break
+        case 'close':
+          this.isShowModal = false
+          console.log('click close')
+          break
+      }
     }
   }
 }
@@ -54,10 +79,6 @@ div {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-#app {
-
-}
-
 .trial {
   position: fixed;
   width: 100vw;
